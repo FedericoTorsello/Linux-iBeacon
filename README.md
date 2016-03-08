@@ -33,10 +33,14 @@ You'll need to download and install [BlueZ](http://www.bluez.org) version 5.7 or
 		
 ## Starting
 	Example:
+
 		$ sh ./linux-ibeacon -s 2
-	(arg 2 in this example is the number of USB Bluetooth on your PC or Raspberry Pi)
+		
+	(the param "2" in this example is the number of USB Bluetooth put in on your PC or Raspberry Pi)
 
 ## Blocking
 	Example:
+	
 		$ sh ./linux-ibeacon -b 2
-	(arg 2 in this example is the number of USB Bluetooth on your PC or Raspberry Pi)
+		
+	(the param "2" in this example is the number of USB Bluetooth put in on your PC or Raspberry Pi)
