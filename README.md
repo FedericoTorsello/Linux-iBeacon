@@ -2,7 +2,7 @@
 ========
 This script make your GNU/Linux machine (PC or Raspberry Pi) in a true iBeacon!
 
-It is based on [piBeacon] (https://github.com/jacklund/piBeacon)
+It is based on [piBeacon] (https://github.com/jacklund/piBeacon).
 
 ## Prerequisites
 You'll need to download and install [BlueZ](http://www.bluez.org) version 5.7 or later and install it.
