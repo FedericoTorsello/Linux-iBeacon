@@ -29,12 +29,12 @@ This script work on more disto Linux Debian-based (Raspbian, Ubuntu, etc) or Arc
 4. Download this git
 		git clone https://github.com/FedericoTorsello/Linux-iBeacon.git
 		
-## Startup
+## Starting
 	Example:
 		$ sh ./linux-ibeacon -s 2
 	(arg 2 in this example is the number of USB Bluetooth on your PC or Raspberry Pi)
 
-## Shutdown
+## Blocking
 	Example:
-		$ sh ./linux-ibeacon -s 2
+		$ sh ./linux-ibeacon -b 2
 	(arg 2 in this example is the number of USB Bluetooth on your PC or Raspberry Pi)
