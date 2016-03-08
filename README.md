@@ -27,7 +27,8 @@ You'll need to download and install [BlueZ](http://www.bluez.org) version 5.7 or
 		$ sudo make
 		$ sudo make install
 		
-4. Download this git
+4. Clone this git
+		
 		git clone https://github.com/FedericoTorsello/Linux-iBeacon.git
 		
 ## Starting
