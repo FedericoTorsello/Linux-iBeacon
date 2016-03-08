@@ -23,9 +23,15 @@ You'll need to download and install [BlueZ](http://www.bluez.org) version 5.7 or
 		$ sudo ./configure --disable-systemd
 		$ sudo make
 		$ sudo make install
-
+4. Download this git
+		git clone https://github.com/FedericoTorsello/Linux-iBeacon.git
+		
 ## Startup
-		$ sudo service ibeacon start
+	Example:
+		$ sh ./linux-ibeacon -s 2
+	(arg 2 in this example is the number of USB Bluetooth on your PC)
 
 ## Shutdown
-		$ sudo service ibeacon shutdown
+	Example:
+		$ sh ./linux-ibeacon -s 2
+	(arg 2 in this example is the number of USB Bluetooth on your PC)
