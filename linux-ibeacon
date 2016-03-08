@@ -1,0 +1,51 @@
+#!/bin/bash
+UUID="e2 c5 6d b5 df fb 48 d2 b0 60 d0 f5 a7 10 96 e0"
+MAJOR="00 00"
+MINOR="00 00"
+POWER="c9"
+
+case "$1" in
+-s)
+	dispNum=$2
+	if [ -n "$dispNum" ]; then
+		if [ "$dispNum"  -eq 0 ]; then
+			echo "You really want to start zero iBeacon? :)"
+		else
+		printf "%-50s" "Starting $dispNum iBeacon(s) ..."
+
+		for (( i=0; i<$2; i++ ))
+		do
+			echo -e "\nLaunching virtual iBeacon $i..."
+			sudo hciconfig hci$i up
+			sudo hciconfig hci$i noleadv
+			sudo hcitool -i hci$i cmd 0x08 0x0008 1e 02 01 1a 1a ff 4c 00 02 15 $UUID $MAJOR $MINOR $POWER 00 00 00 00 00 00 00 00 00 00 00 00 00
+			sudo hciconfig hci$i leadv 3
+			echo -e "Complete\n"
+		done
+		fi
+	else
+	    echo "The second parameter is empty"
+	fi
+;;
+-b)
+	dispNum=$2
+	if [ -n "$dispNum" ]; then
+		if [ "$dispNum"  -eq 0 ]; then
+			echo "You really want to block zero iBeacon? :)"
+		else
+		printf "%-50s" "Blocking $dispNum iBeacon(s)...."
+        	for (( i=0; i<$2; i++ ))
+		do
+			echo -e "\nDisabling virtual iBeacon $i..."
+			sudo hciconfig hci$i  noleadv
+			echo -e "Complete\n"
+		done
+		fi
+	else
+	    echo "The second parameter is empty"
+	fi
+;;
+*)
+        echo "Usage: $0 {-s|-b}"
+        exit 1
+esac
