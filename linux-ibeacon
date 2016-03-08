@@ -13,15 +13,15 @@ case "$1" in
 		else
 			printf "%-50s" "Starting $dispNum iBeacon(s) ..."
 
-			for (( i=0; i<$2; i++ ))
-				do
-					echo -e "\nLaunching virtual iBeacon $i..."
-					sudo hciconfig hci$i up
-					sudo hciconfig hci$i noleadv
-					sudo hcitool -i hci$i cmd 0x08 0x0008 1e 02 01 1a 1a ff 4c 00 02 15 $UUID $MAJOR $MINOR $POWER 00 00 00 00 00 00 00 00 00 00 00 00 00
-					sudo hciconfig hci$i leadv 3
-					echo -e "Complete\n"
-				done
+			for (( i=0; i<dispNum; i++ ))
+			do
+				echo -e "\nLaunching virtual iBeacon $i..."
+				sudo hciconfig hci$i up
+				sudo hciconfig hci$i noleadv
+				sudo hcitool -i hci$i cmd 0x08 0x0008 1e 02 01 1a 1a ff 4c 00 02 15 $UUID $MAJOR $MINOR $POWER 00 00 00 00 00 00 00 00 00 00 00 00 00
+				sudo hciconfig hci$i leadv 3
+				echo -e "Complete\n"
+			done
 		fi
 	else
 	    echo "The second parameter is empty"
@@ -34,7 +34,7 @@ case "$1" in
 			echo "You really want to block zero iBeacon? :)"
 		else
 			printf "%-50s" "Blocking $dispNum iBeacon(s)...."
-        		for (( i=0; i<$2; i++ ))
+        		for (( i=0; i<dispNum; i++ ))
 			do
 				echo -e "\nDisabling virtual iBeacon $i..."
 				sudo hciconfig hci$i  noleadv
