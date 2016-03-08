@@ -6,6 +6,7 @@ Based on piBeacon (https://github.com/jacklund/piBeacon)
 
 ## Prerequisites
 You'll need to download and install [BlueZ](http://www.bluez.org) version 5.7 or later and install it.
+This script work on more disto Linux Debian-based (Raspbian, Ubuntu, etc) or Arch-based (Manjaro).
 
 1. Install prerequisite packages
 
@@ -13,7 +14,8 @@ You'll need to download and install [BlueZ](http://www.bluez.org) version 5.7 or
 
 2. Download and install the latest BlueZ
 
-		$ sudo wget www.kernel.org/pub/linux/bluetooth/bluez-5.8.tar.xz
+		$ sudo wget www.kernel.org/pub/linux/bluetooth/bluez-5.x.tar.xz
+		(go https://www.kernel.org/pub/linux/bluetooth/ to read the last version)
 		$ sudo unxz bluez-5.x.tar.xz
 		$ sudo tar xvf bluez-5.x.tar
 		$ cd bluez-5.x
@@ -23,6 +25,7 @@ You'll need to download and install [BlueZ](http://www.bluez.org) version 5.7 or
 		$ sudo ./configure --disable-systemd
 		$ sudo make
 		$ sudo make install
+		
 4. Download this git
 		git clone https://github.com/FedericoTorsello/Linux-iBeacon.git
 		
