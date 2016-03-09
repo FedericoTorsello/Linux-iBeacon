@@ -6,21 +6,21 @@ POWER="c9"
 
 case "$1" in
 -s)
-	dispNum=$2
-	if [ -n "$dispNum" ]; then
-		if [ "$dispNum"  -eq 0 ]; then
+	if [ -n "$2" ]; then
+		if [ "$2"  -eq 0 ]; then
 			echo "You really want to start zero iBeacon? :)"
 		else
 			printf "%-50s" "Starting $dispNum iBeacon(s) ..."
-
-			for (( i=0; i<dispNum; i++ ))
+			dispNum=$(($2-1))
+			for i in $(seq 0 $dispNum)
+			#for (( i=0; i<dispNum; i++ ))
 			do
 				echo -e "\nLaunching virtual iBeacon $i..."
 				sudo hciconfig hci$i up
 				sudo hciconfig hci$i noleadv
 				sudo hcitool -i hci$i cmd 0x08 0x0008 1e 02 01 1a 1a ff 4c 00 02 15 $UUID $MAJOR $MINOR $POWER 00 00 00 00 00 00 00 00 00 00 00 00 00
 				sudo hciconfig hci$i leadv 3
-				echo -e "Complete\n"
+				echo "Complete\n"
 			done
 		fi
 	else
@@ -28,17 +28,18 @@ case "$1" in
 	fi
 ;;
 -b)
-	dispNum=$2
-	if [ -n "$dispNum" ]; then
-		if [ "$dispNum"  -eq 0 ]; then
+	if [ -n "$2" ]; then
+		if [ "$2"  -eq 0 ]; then
 			echo "You really want to block zero iBeacon? :)"
 		else
 			printf "%-50s" "Blocking $dispNum iBeacon(s)...."
-        		for (( i=0; i<dispNum; i++ ))
+			dispNum=$(($2-1))
+			for i in $(seq 0 $dispNum)
+        		#for (( i=0; i<dispNum; i++ ))
 			do
-				echo -e "\nDisabling virtual iBeacon $i..."
+				echo "\nDisabling virtual iBeacon $i..."
 				sudo hciconfig hci$i  noleadv
-				echo -e "Complete\n"
+				echo "Complete\n"
 			done
 		fi
 	else
