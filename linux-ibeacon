@@ -47,8 +47,8 @@ case "$1" in
 			fi
 
 			dispNum=$(($2-1))
-			#for i in $(seq 0 $dispNum)
-       			for (( i=0; i<dispNum; i++ )) 
+			for i in $(seq 0 $dispNum)
+       			#for (( i=0; i<dispNum; i++ )) 
 			do
        				printf "\nDisabling virtual iBeacon $i..."
 				sudo hciconfig hci$i  noleadv
