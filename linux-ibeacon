@@ -1,5 +1,5 @@
 #!/bin/bash
-APPLE_CD_CODE="4C 00" # Company identifier code (0x004C == Apple) - Manufacture Beacon Type
+APPLE_CD_CODE="4C 00" # Company ID code (0x004C == Apple) - Manufacture Beacon Type
 AD_INDICATOR="02 15" # iBeacon advertisement indicator
 UUID="e2 c5 6d b5 df fb 48 d2 b0 60 d0 f5 a7 10 96 e0" # Proximity UUID
 MAJOR="00 00" # Major number
@@ -14,21 +14,22 @@ case "$1" in
 			echo "You really want to start zero iBeacon? :)"
 		else
 			if [ "$2"  -eq 1 ]; then
-				printf "%-50s" "Starting $dispNum iBeacon..."
+				printf "\nStarting $2 iBeacon...\n"
 			else
-				printf "%-50s" "Starting $dispNum iBeacons..."
-				dispNum=$(($2-1))
-				for i in $(seq 0 $dispNum) do
-				#for (( i=0; i<dispNum; i++ )) do
-					echo "Launching virtual iBeacon $i..."
-					sudo hciconfig hci$i up
-					sudo hciconfig hci$i noleadv
-					sudo hcitool -i hci$i cmd 0x08 0x0008 1e 02 01 1a 1a ff 
-					$APPLE_CD_CODE $AD_INDICATOR $UUID $MAJOR $MINOR $TX_POWER $OTHER
-					sudo hciconfig hci$i leadv 3
-					echo "Complete"
-				done
+				printf "\nStarting $2 iBeacons...\n"
 			fi
+
+			dispNum=$(($2-1))
+			for i in $(seq 0 $dispNum)
+			#for (( i=0; i<dispNum; i++ ))
+			do
+				printf "\nLaunching virtual iBeacon $i...\n"
+				sudo hciconfig hci$i up
+				sudo hciconfig hci$i noleadv
+				sudo hcitool -i hci$i cmd 0x08 0x0008 1e 02 01 1a 1a ff $APPLE_CD_CODE $AD_INDICATOR $UUID $MAJOR $MINOR $TX_POWER $OTHER
+				sudo hciconfig hci$i leadv 3
+				printf "Complete\n\n"
+			done
 		fi
 	else
 	    echo "The second parameter is empty"
@@ -40,16 +41,19 @@ case "$1" in
 			echo "You really want to block zero iBeacon? :)"
 		else
 			if [ "$2"  -eq 1 ]; then
-				printf "%-50s" "Stopping $dispNum iBeacon..."
+				printf "\nStopping $2 iBeacons...\n"
 			else
-				printf "%-50s" "Stopping $dispNum iBeacons..."
-				dispNum=$(($2-1))
-				for i in $(seq 0 $dispNum) do
-        			#for (( i=0; i<dispNum; i++ )) do
-        				echo "Disabling virtual iBeacon $i..."
-					sudo hciconfig hci$i  noleadv
-					echo "Complete"
-				done
+				printf "\nStopping $2 iBeacon...\n"
+			fi
+
+			dispNum=$(($2-1))
+			#for i in $(seq 0 $dispNum)
+       			for (( i=0; i<dispNum; i++ )) 
+			do
+       				printf "\nDisabling virtual iBeacon $i..."
+				sudo hciconfig hci$i  noleadv
+				printf "Complete\n\n"
+			done		
 		fi
 	else
 	    echo "The second parameter is empty"
