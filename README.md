@@ -55,7 +55,7 @@ You'll need to download and install [BlueZ](http://www.bluez.org) version 5.7 or
 		
 		...or...
 		
-		$ cd ~ && sudo wget www.kernel.org/pub/linux/bluetooth/bluez-5.x.tar.xz
+		$ cd ~ && wget www.kernel.org/pub/linux/bluetooth/bluez-5.x.tar.xz
 		(go https://www.kernel.org/pub/linux/bluetooth/ to read the last version)
 		$ unxz bluez-5.x.tar.xz
 		$ tar xvf bluez-5.x.tar
@@ -76,7 +76,7 @@ You'll need to download and install [BlueZ](http://www.bluez.org) version 5.7 or
 
 	Example:
 
-		$ sh ./linux-ibeacon -start 2
+		$ sudo sh linux-ibeacon -start 2
 		
 	(the param "2" in this example is the number of USB Bluetooth plugged in on your PC or Raspberry Pi)
 
@@ -84,7 +84,7 @@ You'll need to download and install [BlueZ](http://www.bluez.org) version 5.7 or
 
 	Example:
 	
-		$ sh ./linux-ibeacon -stop 3
+		$ sudo sh linux-ibeacon -stop 3
 		
 	(the param "3" in this example is the number of USB Bluetooth plugged in on your PC or Raspberry Pi)
 
