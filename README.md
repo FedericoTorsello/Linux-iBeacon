@@ -1,5 +1,5 @@
 # Linux-iBeacon
-========
+--------
 This script make your GNU/Linux machine (PC or Raspberry Pi) in a true iBeacon!
 
 This script work on more Linux distro Debian-based (Raspbian, Ubuntu, etc) or Arch-based (Manjaro).
@@ -51,3 +51,18 @@ You'll need to download and install [BlueZ](http://www.bluez.org) version 5.7 or
 		$ sh ./linux-ibeacon -stop 3
 		
 	(the param "3" in this example is the number of USB Bluetooth put in on your PC or Raspberry Pi)
+
+#Other
+--------
+	
+## Checking your Environment
+
+		sudo hciconfig
+
+	result like this:
+
+		hci0:   Type: BR/EDR  Bus: USB
+    		BD Address: 00:02:xx:DC:xx:4F  ACL MTU: 1021:8  SCO MTU: 64:1
+    		UP RUNNING
+    		RX bytes:1144 acl:0 sco:0 events:71 errors:0
+    		TX bytes:1173 acl:0 sco:0 commands:71 errors:0
