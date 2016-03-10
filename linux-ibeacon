@@ -5,7 +5,7 @@ MINOR="00 00"
 POWER="c9"
 
 case "$1" in
--s)
+-start)
 	if [ -n "$2" ]; then
 		if [ "$2"  -eq 0 ]; then
 			echo "You really want to start zero iBeacon? :)"
@@ -27,7 +27,7 @@ case "$1" in
 	    echo "The second parameter is empty"
 	fi
 ;;
--b)
+-stop)
 	if [ -n "$2" ]; then
 		if [ "$2"  -eq 0 ]; then
 			echo "You really want to block zero iBeacon? :)"
@@ -47,6 +47,6 @@ case "$1" in
 	fi
 ;;
 *)
-        echo "Usage: $0 {-s|-b}"
+        echo "Usage: $0 {-start|-stop}"
         exit 1
 esac
