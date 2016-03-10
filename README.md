@@ -15,6 +15,10 @@ You'll need to download and install [BlueZ](http://www.bluez.org) version 5.7 or
 
 2. Download and install the latest BlueZ
 
+		$ sudo apt-get install bluez
+		
+		...or...
+		
 		$ sudo wget www.kernel.org/pub/linux/bluetooth/bluez-5.x.tar.xz
 		(go https://www.kernel.org/pub/linux/bluetooth/ to read the last version)
 		$ sudo unxz bluez-5.x.tar.xz
@@ -27,20 +31,23 @@ You'll need to download and install [BlueZ](http://www.bluez.org) version 5.7 or
 		$ sudo make
 		$ sudo make install
 		
-4. Clone this git
+4. Clone this git and change directory
 		
 		git clone https://github.com/FedericoTorsello/Linux-iBeacon.git
+		cd (download directory)/Linux-iBeacon
 		
 ## Starting
+
 	Example:
 
-		$ sh ./linux-ibeacon -s 2
+		$ sh ./linux-ibeacon -start 2
 		
 	(the param "2" in this example is the number of USB Bluetooth put in on your PC or Raspberry Pi)
 
-## Blocking
+## Stopping
+
 	Example:
 	
-		$ sh ./linux-ibeacon -b 2
+		$ sh ./linux-ibeacon -stop 3
 		
-	(the param "2" in this example is the number of USB Bluetooth put in on your PC or Raspberry Pi)
+	(the param "3" in this example is the number of USB Bluetooth put in on your PC or Raspberry Pi)
