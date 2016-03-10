@@ -56,7 +56,7 @@ You'll need to download and install [BlueZ](http://www.bluez.org) version 5.7 or
 
 ## Checking your Environment
 
-		sudo hciconfig
+		$ sudo hciconfig
 
 	result like this:
 
